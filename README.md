@@ -1,4 +1,4 @@
-# 深渊回想 · Room-Based Roguelike RPG
+# 深渊回响 · Room-Based Roguelike RPG
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.png" alt="Abyssal Echo Banner" width="960" />
