@@ -1,10 +1,10 @@
 # 심연의 메아리 · 방 기반 로그라이크 RPG
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.png" alt="Abyssal Echo Banner" width="960" />
+  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.svg" alt="Abyssal Echo Banner" width="960" />
 </p>
 
-심연의 메아리는 심해를 향해 내려가는 것을 핵심으로 하는 방 기반 로그라이크 RPG입니다. 각 층을 탐험하며 방을 지나고, 적과 싸우고, 보물을 장비하며, 업그레이드를 하고, 최종적으로 15층에서 심연의 군주를 물리칩니다.
+심연의 메아리는 심해를 향해 내려가는 것을 핵심으로 하는 방 기반 로그라이크 RPG입니다. 각 층을 탐험하며 방을 지나고, 적과 싸우고, 보물을 장비로 바꾸며, 다음 층으로 나아가며 점점 더 깊은 심연의 위협에 맞서게 됩니다.
 
 - 방 기반 지도와 무작위 이벤트
 - 상태 이상, 버프, 디버프, 보스 메커니즘이 얽힌 턴제 전투

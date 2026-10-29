@@ -1,10 +1,10 @@
 # 深渊回响 · Room-Based Roguelike RPG
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.png" alt="Abyssal Echo Banner" width="960" />
+  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.svg" alt="Abyssal Echo Banner" width="960" />
 </p>
 
-Abyssal Echo 是一款以“深渊下探”为核心的房间制 Roguelike RPG。你将穿过不断变化的地图，探索每层房间、击败敌人、搜刮宝物、升级装备，并在第 15 层终局打败深渊之主。
+Abyssal Echo 是一款以“深渊下探”为核心的房间制 Roguelike RPG。你将穿过不断变化的地图，探索每层房间、击败敌人、搜刮宝物、升级装备，并在第 15 层面对深渊守门者与更高层的难度曲线。
 
 - 玩法独特：房间制地图、随机事件、商店、祭坛、训练室、宝箱和 Boss 组成的层层挑战
 - 机制丰富：战斗、升级、毒、灼烧、状态层层叠加，战术选择决定每一场胜负

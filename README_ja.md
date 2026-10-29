@@ -1,10 +1,10 @@
 # 深淵回想 · ルーム制ローグライクRPG
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.png" alt="Abyssal Echo Banner" width="960" />
+  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.svg" alt="Abyssal Echo Banner" width="960" />
 </p>
 
-深淵回想は、地下へと潜っていくことを軸にしたルーム制ローグライクRPGです。各階層の部屋を探索し、戦闘、宝箱、ショップ、祭壇、イベント、ボスと向き合いながら、最深部の第15階層で「深淵の主」を倒します。
+深淵回想は、地下へと潜っていくことを軸にしたルーム制ローグライクRPGです。各階層の部屋を探索し、戦闘、宝箱、ショップ、祭壇、イベント、ボスといった選択肢が次の階層へと影響します。
 
 - ルーム制マップとランダムイベント
 - スキル/防御/回復を組み合わせる戦略的な戦闘

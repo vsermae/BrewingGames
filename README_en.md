@@ -1,10 +1,10 @@
 # Abyssal Echo — Room-Based Roguelike RPG
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.png" alt="Abyssal Echo Banner" width="960" />
+  <img src="https://raw.githubusercontent.com/vsermae/BrewingGames/main/.github/assets/banner.svg" alt="Abyssal Echo Banner" width="960" />
 </p>
 
-Abyssal Echo is a room-based roguelike RPG built around descent, survival, and repeated mastery. Each run pushes you deeper into the abyss, where every room can trigger combat, treasure, blessings, curses, shops, or boss encounters.
+Abyssal Echo is a room-based roguelike RPG built around descent, survival, and repeated mastery. Each run pushes you deeper into the abyss, where every room can trigger combat, treasure, blessings, inventory pressure, and evolving risk.
 
 - Procedural room generation and layered floor progression
 - Deep, tactical combat with buffs, debuffs, status effects, and boss mechanics
