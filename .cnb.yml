@@ -1,0 +1,176 @@
+# 深渊回响 · Godot 4 + C# 版的构建与发布
+#
+# TS/Electron 版已从仓库移除（见 Issue #81），这里只剩一条流水线：
+#
+#   1) push                          → Godot 逻辑自检（几秒，规则没被改坏的底线）
+#   2) tag（如 v1.4.0）              → 自检 + 导出 + 创建 Release + 上传附件
+#   3) web_trigger（手动）           → 自检 + 导出，不发布，用来验证链路
+#
+# 产物：Windows 与 Linux 各一份 zip / tar.gz，里面都是「可执行文件 + pck + data_*」三件套。
+# 构建环境见 .ci/godot/Dockerfile（Godot 4.7.2 .NET + dotnet 8 + 双平台导出模板）
+
+.godot-build: &godot-build
+  docker:
+    # 对象写法才会带上 by / versionBy：字符串简写等于「只给我一个 Dockerfile」，
+    # build context 里除了 Dockerfile 什么都没有（踩过）。
+    build:
+      dockerfile: .ci/godot/Dockerfile
+      # by 列出要 COPY 进镜像的文件。没列进来的文件不在 context 里，COPY 会 not found。
+      # 注意：这一段是 YAML 注释，不是 shell——注释里别写双引号来「打比方」。
+      # 中文引号随便用；但落单的 ASCII 双引号会被解析器当成字符串开头，
+      # 下面几行就跟着被吞掉，报的是 did not find expected key / mapping values are not allowed。
+      # 同一份列表也是这一层的缓存失效依据：脚本改了不用 --no-cache 就会重建。
+      by:
+        - .ci/godot/install-godot.sh
+        - godot/AbyssEcho.csproj
+        - godot/project.godot
+
+# 逻辑自检 + 界面冒烟：不需要显卡，headless 跑完整套规则验证，再把界面建一遍
+.godot-selfcheck: &godot-selfcheck
+  name: Godot 逻辑自检
+  script: |
+    set -eu
+    cd godot
+    # 顺序不能反：
+    #   1) dotnet build 先产出程序集；
+    #   2) godot --import 建 .godot/ 缓存（干净工作区里只靠它有时拿不到已构建的 dll）；
+    #   3) --selfcheck 才是真正跑规则验证，失败时非零退出码，流水线直接红。
+    dotnet build
+    godot --headless --path . --import
+    godot --headless --path . -- --selfcheck
+    # 逻辑自检管不到界面层：这条真的把场景建出来跑一遍布局，
+    # 抓「_Ready 里空引用」「面板算成 0 宽」「房间格掉到视口外」这类问题。
+    godot --headless --path . -- --uismoke
+    # 性能基线：不进断言（CI 机器负载不稳），只进日志。
+    # 必须有显示设备，否则 OpenGL 上下文起不来，--bench 会静默量到 0 帧。
+    xvfb-run -a godot --path . --rendering-driver opengl3 -- --bench || true
+    # 截图：把七个界面拍下来。每张**拍之前先自证**（屏上不许有自己的覆盖层、
+    # 战斗要有标题栏与按钮行、弹窗要压在自己的暗角上、Boss 出场要有名字、
+    # 提示胶囊不压房间砖与图例），任何一条不过就非零退出。
+    #
+    # 上一版这里只是 `test "$count" -ge 5`：五张图都在，其中三张被同一张新手引导卡
+    # 盖着，流水线照样绿了好几轮。数张数回答不了「这张图里画的是什么」。
+    rm -rf screenshots
+    xvfb-run -a godot --path . --rendering-driver opengl3 -- --shot=screenshots
+    test -f screenshots/manifest.json || { echo "截图没写清单：自证那一步没跑完" >&2; exit 1; }
+    # 九张：菜单 / 地图 / 提示落点 / 战斗 / 弹窗 / 长内容弹窗 / Boss 出场 /
+    # 中毒合计 / 倒下自爆。后两张是这一轮加的：先有现场，判据才谈得上存在。
+    # 数张数证明不了「画的是什么」，但能挡住「某一张根本没拍」——
+    # 这一轮就踩过：状态机把插队那一步设成负数，switch 直接掉进 default 收尾，
+    # `06-toast.png` 一次都没拍，而清单里少一行，`--from-shots` 照样全绿。
+    test "$(python3 -c 'import json;print(len(json.load(open("screenshots/manifest.json"))["shots"]))')" -ge 9 \
+      || { echo "截图少了：清单里不到九张" >&2; exit 1; }
+    cat screenshots/manifest.json
+    # 上面那一步用的是已构建的 dll，所以「判据真的跑过」这件事得单独钉一次：
+    # 只读清单、重放判据，不过就红。少一次这个，前一条可能悄悄退化成「只拍不查」。
+    godot --headless --path . -- --from-shots=screenshots
+    # 图要从工作区搬出去：Godot 导出会把工作区里的资源都打进 pck。
+    # 但这次不删——/opt/shots 是镜像里 VOLUME 声明的数据卷，
+    # 会被共享给后续由插件任务启动的容器，下一步「上传截图」就在那儿读它。
+    # 只挑 png 和清单：screenshots/ 里别的东西一律不带。
+    mkdir -p /opt/shots && cp screenshots/*.png screenshots/manifest.json /opt/shots/ && rm -rf screenshots
+    ls -la /opt/shots
+
+# 导出 Windows + Linux 包，并在产物本身上再跑一遍自检
+.godot-export: &godot-export
+  name: 导出 PC 包（Windows + Linux）
+  script: |
+    set -eu
+    cd godot
+    # 产物目录必须干净重建：留着上一次的东西，export_filter="all_resources" 会把它当项目资源打进 pck。
+    rm -rf build screenshots
+    mkdir -p build/win build/linux
+    dotnet build
+    godot --headless --path . --import
+    # 导出前先过界面冒烟：导不出来的包别浪费一次完整导出
+    godot --headless --path . -- --uismoke
+    # Godot 导出失败时不一定给非零码，所以导出后逐项断言文件真的落地了
+    godot --headless --path . --export-release "Windows Desktop" build/win/AbyssEcho.exe
+    godot --headless --path . --export-release "Linux" build/linux/AbyssEcho.x86_64
+    test -f build/win/AbyssEcho.exe
+    test -f build/linux/AbyssEcho.x86_64
+    for f in build/win/data_AbyssEcho_windows_x86_64 build/linux/data_AbyssEcho_linuxbsd_x86_64; do
+      test -d "$f" || { echo "导出缺目录 $f" >&2; ls -la "$(dirname "$f")" >&2; exit 1; }
+    done
+    # 导出产物的性能基线：同一个二进制在自己机器上的数才是能对外引用的数
+    xvfb-run -a godot --path . --rendering-driver opengl3 -- --bench 2>&1 | tail -20 || true
+    # 三件套必须一起打包，少一个都跑不起来。用子 shell 切目录，别改掉后面的相对路径基准。
+    ( cd build/win && zip -r AbyssEcho-windows-x86_64.zip AbyssEcho.exe AbyssEcho.pck data_AbyssEcho_windows_x86_64 )
+    ( cd build/linux && tar czf AbyssEcho-linux-x86_64.tar.gz AbyssEcho.x86_64 AbyssEcho.pck data_AbyssEcho_linuxbsd_x86_64 )
+    # set -eu 只管打包命令的退出码，管不了「包里是空的」
+    unzip -t build/win/AbyssEcho-windows-x86_64.zip > /dev/null
+    tar tzf build/linux/AbyssEcho-linux-x86_64.tar.gz > /dev/null
+    ls -lh build/win/*.zip build/linux/*.tar.gz
+    # 导出的二进制不是「编完就算」：它要能跑，再把两套自检在产物上跑一遍
+    ./build/linux/AbyssEcho.x86_64 --headless -- --selfcheck
+    ./build/linux/AbyssEcho.x86_64 --headless -- --uismoke
+
+"$":
+  # 任何分支 push 都先过自检：几秒的成本，换「规则没被改坏」的底线。
+  push:
+    - name: Godot 逻辑自检
+      <<: *godot-build
+      stages:
+        - *godot-selfcheck
+        # 截图存成 Commit 附件：这是这个仓库里唯一能「看」的东西。
+        # 「图是对的」不该只有跑过那次 CI 的人知道——下一个人要复核，
+        # 得能在 Commit 详情里把那张图下下来。
+        #
+        # 为什么先 cp 到工作区：插件任务在独立容器里跑，容器之间只共享
+        # 工作区与声明的数据卷；而截图又不能留在工作区里等导出（Godot 会把
+        # 工作区里的资源打进 pck）。所以自检阶段把它挪到 /opt/shots（镜像里
+        # VOLUME 声明的数据卷），这里再搬回工作区、交给插件。
+        # attachments 要相对路径，绝对路径插件不认。
+        - name: 截图归档
+          script: |
+            set -eu
+            mkdir -p godot/screenshots
+            cp /opt/shots/*.png /opt/shots/manifest.json godot/screenshots/
+            ls -la godot/screenshots
+        # 插件任务在独立容器里跑，工作区按同一路径挂进去，所以相对路径能直接用
+        # （插件不认绝对路径）。
+        # 这一步是「留个证据」，不是门禁：它哪天传不上去，不该把一次本来通过的构建拦下来。
+        - name: 上传界面截图
+          image: cnbcool/attachments:latest
+          settings:
+            type: UPLOAD
+            attachments:
+              - "godot/screenshots/*"
+
+  # 打 tag = 发版：自检 → 导出 → Release → 附件。版本号取当次 tag。
+  tag_push:
+    - name: 发布 Godot PC 版
+      <<: *godot-build
+      stages:
+        - *godot-selfcheck
+        - *godot-export
+        # 版本号只改导出预设里的元数据，所以放在导出之后：
+        # 已经打好的包不受影响，这一步纯粹是给下一次构建留痕（改过的工作区不会回写仓库）。
+        - name: 回写版本号
+          script: node scripts/set-godot-version.mjs "$CNB_BRANCH"
+        # 截图在自检阶段渲完、数完、删掉了（留着会被 Godot 打进 pck），
+        # 所以这里不再从工作区捞 artifact——渲染链通不通由自检阶段每张图的
+        # 自证（+ `--from-shots` 那次重放）负责。
+        - name: 创建 Release
+          type: git:release
+          options:
+            title: 深渊回响 $CNB_BRANCH
+            descriptionFromFile: RELEASE_NOTES.md
+            latest: true
+        # git:release 不支持附件，安装包用附件插件上传到对应 Release
+        - name: 上传 Release 附件
+          image: cnbcool/attachments:latest
+          settings:
+            type: UPLOAD
+            tag: $CNB_BRANCH
+            attachments:
+              - "godot/build/win/*.zip"
+              - "godot/build/linux/*.tar.gz"
+
+  # 手动触发：只构建，不发布，用来验证流水线
+  web_trigger:
+    - name: 手动构建 Godot PC 版（不发布）
+      <<: *godot-build
+      stages:
+        - *godot-selfcheck
+        - *godot-export

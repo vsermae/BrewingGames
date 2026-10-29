@@ -1,0 +1,6 @@
+# Godot / .NET 构建产物（导出与 import 缓存都不入库）
+godot/.godot/
+godot/build/
+godot/screenshots/
+godot/bin/
+godot/obj/

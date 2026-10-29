@@ -1,0 +1,1783 @@
+{
+  "skills": [
+    {
+      "id": "fireball",
+      "name": "火球",
+      "desc": "凝聚烈焰轰击敌人，造成 1.6 倍攻击力的火焰伤害。",
+      "type": "damage",
+      "power": 1.6,
+      "cooldown": 2,
+      "icon": "🔥"
+    },
+    {
+      "id": "heal",
+      "name": "治愈",
+      "desc": "回复自身 30% 最大生命值。",
+      "type": "heal",
+      "power": 0.3,
+      "cooldown": 3,
+      "icon": "✨"
+    },
+    {
+      "id": "empower",
+      "name": "强化",
+      "desc": "下一回合攻击力提升 40%。",
+      "type": "buff",
+      "power": 0.4,
+      "cooldown": 3,
+      "icon": "💪"
+    },
+    {
+      "id": "bone_throw",
+      "name": "掷骨",
+      "desc": "投出碎骨，造成 1.3 倍攻击力的伤害。",
+      "type": "damage",
+      "power": 1.3,
+      "cooldown": 2,
+      "icon": "🦴"
+    },
+    {
+      "id": "venom_spit",
+      "name": "毒液喷吐",
+      "desc": "喷出毒液，造成 1.2 倍攻击力伤害。",
+      "type": "damage",
+      "power": 1.2,
+      "cooldown": 3,
+      "icon": "🧪"
+    },
+    {
+      "id": "dark_mend",
+      "name": "暗愈",
+      "desc": "汲取黑暗回复 25% 最大生命值。",
+      "type": "heal",
+      "power": 0.25,
+      "cooldown": 4,
+      "icon": "🩸"
+    },
+    {
+      "id": "inferno",
+      "name": "炼狱",
+      "desc": "Boss 的毁灭打击，造成 1.6 倍攻击力的火焰伤害。",
+      "type": "damage",
+      "power": 1.6,
+      "cooldown": 4,
+      "icon": "☄️"
+    },
+    {
+      "id": "toxic_fog",
+      "name": "毒雾",
+      "type": "poison",
+      "power": 0.5,
+      "directDamage": false,
+      "cooldown": 3,
+      "icon": "☠️",
+      "desc": "喷出毒雾，使敌人每回合受到基础攻击力 50% 的伤害（每回合 6 点封顶），持续 3 回合。"
+    },
+    {
+      "id": "soul_drain",
+      "name": "灵魂汲取",
+      "type": "drain",
+      "power": 0.8,
+      "cooldown": 3,
+      "icon": "🕯️",
+      "desc": "汲取敌人生命，造成 0.8 倍攻击力的伤害并回复等量生命。"
+    },
+    {
+      "id": "frost_nova",
+      "name": "冰霜新星",
+      "type": "damage",
+      "power": 1.1,
+      "cooldown": 2,
+      "icon": "❄️",
+      "desc": "寒气爆开，对敌人造成 1.1 倍攻击力的伤害。"
+    },
+    {
+      "id": "thunderclap",
+      "name": "雷鸣",
+      "type": "damage",
+      "power": 2,
+      "cooldown": 4,
+      "icon": "⚡",
+      "desc": "一道雷霆劈下，造成 2 倍攻击力的伤害。"
+    },
+    {
+      "id": "stone_skin",
+      "name": "石肤",
+      "type": "buff",
+      "power": 0.25,
+      "cooldown": 4,
+      "icon": "🪨",
+      "desc": "石皮瞬间变硬：自身防御提升，按基础防御的 25% 折算，持续 2 回合。"
+    },
+    {
+      "id": "venom_burst",
+      "name": "毒爆",
+      "desc": "喷出一团积蓄的毒液，造成 1.4 倍攻击力伤害并使其中毒 2 回合（每回合的毒伤 6 点封顶）。",
+      "type": "poison",
+      "power": 1.4,
+      "cooldown": 3,
+      "poisonTurns": 2,
+      "icon": "☠️"
+    },
+    {
+      "id": "rust_curse",
+      "name": "锈蚀",
+      "desc": "腐蚀敌人的护甲，使其防御下降 3 点，持续 3 回合。",
+      "type": "debuff_defense",
+      "power": 3,
+      "cooldown": 4,
+      "icon": "🧯"
+    },
+    {
+      "id": "frost_brand",
+      "name": "冰封印记",
+      "desc": "在敌人身上留下寒气，使其攻击下降 25%，持续 3 回合。",
+      "type": "debuff_attack",
+      "power": 0.25,
+      "cooldown": 4,
+      "icon": "❄️"
+    },
+    {
+      "id": "phase_dash",
+      "name": "相位穿行",
+      "desc": "身影散作黑雾再凝聚，本回合闪避率大幅提升。",
+      "type": "evade",
+      "power": 0.6,
+      "cooldown": 4,
+      "icon": "🌀"
+    },
+    {
+      "id": "tremor",
+      "name": "震颤",
+      "desc": "重踏地面，造成 1.5 倍攻击力的伤害并眩晕敌人 1 回合。",
+      "type": "stun",
+      "power": 1.5,
+      "cooldown": 4,
+      "icon": "💥"
+    },
+    {
+      "id": "corrupt",
+      "name": "腐蚀新星",
+      "desc": "深渊之力倾泻，造成 1.7 倍攻击力的伤害并驱散你所有的正面状态。",
+      "type": "dispel",
+      "power": 1.7,
+      "cooldown": 4,
+      "icon": "🌑"
+    }
+  ],
+  "items": [
+    {
+      "id": "rusty_sword",
+      "name": "锈剑",
+      "slot": "weapon",
+      "rarity": "common",
+      "price": 12,
+      "attack": 3,
+      "desc": "剑刃布满缺口，但依然能砍。",
+      "quality": "white"
+    },
+    {
+      "id": "steel_sword",
+      "name": "精钢剑",
+      "slot": "weapon",
+      "rarity": "rare",
+      "price": 34,
+      "attack": 7,
+      "desc": "锻造精良，锋利而稳定。",
+      "quality": "blue"
+    },
+    {
+      "id": "flame_blade",
+      "name": "烈焰之刃",
+      "slot": "weapon",
+      "rarity": "epic",
+      "price": 68,
+      "attack": 12,
+      "desc": "剑身缠绕不灭的火焰。",
+      "quality": "orange",
+      "set": "炽炎"
+    },
+    {
+      "id": "leather_armor",
+      "name": "皮甲",
+      "slot": "armor",
+      "rarity": "common",
+      "price": 12,
+      "defense": 2,
+      "desc": "轻便的皮制护甲。",
+      "quality": "white"
+    },
+    {
+      "id": "chain_mail",
+      "name": "锁子甲",
+      "slot": "armor",
+      "rarity": "rare",
+      "price": 32,
+      "defense": 5,
+      "desc": "环环相扣，防护可靠。",
+      "quality": "blue"
+    },
+    {
+      "id": "dragon_plate",
+      "name": "龙鳞铠",
+      "slot": "armor",
+      "rarity": "epic",
+      "price": 260,
+      "defense": 19,
+      "maxHp": 14,
+      "desc": "以龙鳞锻成，坚不可摧。",
+      "quality": "orange",
+      "set": "龙鳞"
+    },
+    {
+      "id": "iron_ring",
+      "name": "铁戒指",
+      "slot": "trinket",
+      "rarity": "common",
+      "price": 10,
+      "maxHp": 8,
+      "desc": "朴素，但能让人感到安心。",
+      "quality": "white"
+    },
+    {
+      "id": "ruby_amulet",
+      "name": "红宝石护符",
+      "slot": "trinket",
+      "rarity": "rare",
+      "price": 30,
+      "attack": 4,
+      "maxHp": 10,
+      "desc": "宝石中封存着战意。",
+      "quality": "blue"
+    },
+    {
+      "id": "hero_medal",
+      "name": "英雄勋章",
+      "slot": "trinket",
+      "rarity": "epic",
+      "price": 80,
+      "attack": 6,
+      "defense": 4,
+      "maxHp": 20,
+      "desc": "属于战胜过深渊的人。",
+      "quality": "orange",
+      "set": "英雄"
+    },
+    {
+      "id": "health_potion",
+      "name": "治疗药水",
+      "slot": "consumable",
+      "rarity": "common",
+      "price": 8,
+      "heal": 30,
+      "desc": "立刻回复 30 点生命值。"
+    },
+    {
+      "id": "bomb",
+      "name": "炸弹",
+      "slot": "consumable",
+      "rarity": "common",
+      "price": 14,
+      "damage": 25,
+      "desc": "对敌人造成 25 点无视防御的伤害。"
+    },
+    {
+      "id": "greater_potion",
+      "name": "强效治疗药水",
+      "slot": "consumable",
+      "rarity": "rare",
+      "price": 16,
+      "heal": 70,
+      "desc": "立刻回复 70 点生命值。"
+    },
+    {
+      "id": "antidote",
+      "name": "解毒草",
+      "slot": "consumable",
+      "rarity": "common",
+      "price": 5,
+      "desc": "立刻解除中毒。没有中毒时吃它，只会占掉一个回合。",
+      "cleanse": true
+    },
+    {
+      "id": "battle_axe",
+      "name": "战斧",
+      "slot": "weapon",
+      "rarity": "rare",
+      "price": 40,
+      "attack": 9,
+      "defense": 1,
+      "desc": "沉重，但每一击都很实在。",
+      "quality": "blue"
+    },
+    {
+      "id": "void_edge",
+      "name": "虚空之刃",
+      "slot": "weapon",
+      "rarity": "epic",
+      "price": 96,
+      "attack": 16,
+      "desc": "剑身映不出影子，据说能斩开深渊本身。",
+      "quality": "orange",
+      "set": "虚空之锋"
+    },
+    {
+      "id": "abyss_veil",
+      "name": "深渊面纱",
+      "slot": "trinket",
+      "rarity": "epic",
+      "price": 300,
+      "attack": 13,
+      "maxHp": 56,
+      "desc": "戴上它的人说，深渊反过来看他们。",
+      "quality": "orange"
+    },
+    {
+      "id": "abyss_edge",
+      "name": "深渊之牙",
+      "slot": "weapon",
+      "rarity": "epic",
+      "price": 210,
+      "attack": 23,
+      "desc": "从第十层往下才见得着的东西。刀口上挂着的不是血，是回响。",
+      "quality": "orange"
+    },
+    {
+      "id": "frost_mail",
+      "name": "霜纹锁甲",
+      "slot": "armor",
+      "rarity": "rare",
+      "price": 44,
+      "defense": 6,
+      "maxHp": 8,
+      "desc": "覆着一层不化的薄霜。",
+      "quality": "blue"
+    },
+    {
+      "id": "dragon_heart",
+      "name": "巨龙之心",
+      "slot": "trinket",
+      "rarity": "epic",
+      "price": 240,
+      "attack": 11,
+      "maxHp": 44,
+      "desc": "仍在跳动，把远古的力量借给你。",
+      "quality": "orange",
+      "set": "巨龙之裔"
+    },
+    {
+      "id": "heart_of_abyss",
+      "name": "深渊之心",
+      "slot": "trinket",
+      "rarity": "epic",
+      "price": 560,
+      "attack": 16,
+      "defense": 6,
+      "maxHp": 52,
+      "desc": "从最深处捞上来的那一颗心，还在按你的脉搏跳。",
+      "quality": "orange",
+      "set": "深渊之裔"
+    }
+  ],
+  "monsters": [
+    {
+      "id": "rat",
+      "name": "巨鼠",
+      "hp": 22,
+      "attack": 6,
+      "defense": 1,
+      "gold": 6,
+      "xp": 8,
+      "skills": [],
+      "desc": "下水道里的常客。",
+      "minFloor": 1
+    },
+    {
+      "id": "slime",
+      "name": "史莱姆",
+      "hp": 30,
+      "attack": 5,
+      "defense": 3,
+      "gold": 8,
+      "xp": 10,
+      "skills": [
+        "venom_spit"
+      ],
+      "desc": "软乎乎的一团，有点黏。",
+      "minFloor": 1
+    },
+    {
+      "id": "skeleton",
+      "name": "骷髅兵",
+      "hp": 26,
+      "attack": 9,
+      "defense": 2,
+      "gold": 10,
+      "xp": 12,
+      "skills": [
+        "bone_throw"
+      ],
+      "desc": "被遗忘的士兵，仍在巡逻。",
+      "minFloor": 1
+    },
+    {
+      "id": "goblin",
+      "name": "哥布林",
+      "hp": 28,
+      "attack": 8,
+      "defense": 2,
+      "gold": 14,
+      "xp": 11,
+      "skills": [],
+      "desc": "贪婪、狡猾、成群结队。",
+      "minFloor": 1
+    },
+    {
+      "id": "orc",
+      "name": "兽人战士",
+      "hp": 45,
+      "attack": 12,
+      "defense": 5,
+      "gold": 20,
+      "xp": 20,
+      "skills": [
+        "empower"
+      ],
+      "desc": "肌肉发达，脾气暴躁。",
+      "minFloor": 3
+    },
+    {
+      "id": "wraith",
+      "name": "怨灵",
+      "hp": 38,
+      "attack": 13,
+      "defense": 3,
+      "gold": 22,
+      "xp": 22,
+      "skills": [
+        "dark_mend"
+      ],
+      "desc": "冰冷的低语萦绕不去。",
+      "minFloor": 4
+    },
+    {
+      "id": "troll",
+      "name": "巨魔",
+      "hp": 70,
+      "attack": 15,
+      "defense": 7,
+      "gold": 32,
+      "xp": 34,
+      "skills": [
+        "bone_throw",
+        "dark_mend"
+      ],
+      "desc": "皮糙肉厚，伤口愈合得很快。",
+      "minFloor": 5
+    },
+    {
+      "id": "lich",
+      "name": "巫妖",
+      "hp": 60,
+      "attack": 18,
+      "defense": 4,
+      "gold": 40,
+      "xp": 45,
+      "skills": [
+        "venom_spit",
+        "dark_mend"
+      ],
+      "desc": "以禁忌之术换来的永生。",
+      "minFloor": 6
+    },
+    {
+      "id": "mimic",
+      "name": "宝箱怪",
+      "hp": 34,
+      "attack": 11,
+      "defense": 4,
+      "gold": 26,
+      "xp": 24,
+      "minFloor": 2,
+      "skills": [
+        "toxic_fog"
+      ],
+      "desc": "装成宝箱，等你伸手。"
+    },
+    {
+      "id": "golem",
+      "name": "石头傀儡",
+      "hp": 78,
+      "attack": 16,
+      "defense": 10,
+      "gold": 38,
+      "xp": 38,
+      "minFloor": 6,
+      "skills": [
+        "stone_skin"
+      ],
+      "desc": "沉默的看守，拳头比城门还硬。"
+    },
+    {
+      "id": "blood_serpent",
+      "name": "血蛇",
+      "hp": 52,
+      "attack": 19,
+      "defense": 5,
+      "gold": 42,
+      "xp": 44,
+      "minFloor": 8,
+      "skills": [
+        "soul_drain"
+      ],
+      "desc": "咬住你就不松口。"
+    },
+    {
+      "id": "thorn_hound",
+      "name": "荆棘猎犬",
+      "hp": 34,
+      "attack": 12,
+      "defense": 2,
+      "gold": 18,
+      "xp": 18,
+      "skills": [
+        "venom_burst"
+      ],
+      "desc": "浑身荆棘的猎犬，咬住就不松口。",
+      "minFloor": 3
+    },
+    {
+      "id": "cave_bat",
+      "name": "洞穴蝠",
+      "hp": 24,
+      "attack": 11,
+      "defense": 1,
+      "gold": 16,
+      "xp": 16,
+      "skills": [
+        "phase_dash"
+      ],
+      "desc": "叫声刺耳，身形飘忽。",
+      "minFloor": 4
+    },
+    {
+      "id": "stone_warden",
+      "name": "石像守望",
+      "hp": 62,
+      "attack": 18,
+      "defense": 8,
+      "gold": 36,
+      "xp": 36,
+      "skills": [
+        "stone_skin"
+      ],
+      "desc": "沉眠的守卫，被脚步声唤醒。",
+      "minFloor": 6
+    },
+    {
+      "id": "frost_archer",
+      "name": "霜弓手",
+      "hp": 44,
+      "attack": 17,
+      "defense": 4,
+      "gold": 34,
+      "xp": 32,
+      "skills": [
+        "frost_brand"
+      ],
+      "desc": "箭矢带着刺骨寒意。",
+      "minFloor": 7
+    },
+    {
+      "id": "rust_golem",
+      "name": "锈蚀巨像",
+      "hp": 84,
+      "attack": 20,
+      "defense": 12,
+      "gold": 48,
+      "xp": 46,
+      "skills": [
+        "rust_curse"
+      ],
+      "desc": "锈迹斑斑的巨像，关节里全是砂砾。",
+      "minFloor": 9
+    },
+    {
+      "id": "shadow_stalker",
+      "name": "暗影潜伏者",
+      "hp": 56,
+      "attack": 22,
+      "defense": 6,
+      "gold": 46,
+      "xp": 44,
+      "skills": [
+        "phase_dash",
+        "soul_drain"
+      ],
+      "desc": "只在视野边缘出现的东西。",
+      "minFloor": 10
+    },
+    {
+      "id": "abyss_hound",
+      "name": "深渊猎犬",
+      "hp": 70,
+      "attack": 24,
+      "defense": 7,
+      "gold": 54,
+      "xp": 52,
+      "skills": [
+        "venom_burst",
+        "soul_drain"
+      ],
+      "desc": "从裂隙里嗅着你的气味而来。",
+      "minFloor": 12
+    },
+    {
+      "id": "crystal_priest",
+      "name": "晶石祭司",
+      "hp": 66,
+      "attack": 23,
+      "defense": 9,
+      "gold": 56,
+      "xp": 54,
+      "skills": [
+        "frost_brand",
+        "dark_mend"
+      ],
+      "desc": "在水晶墙前祈祷了太久。",
+      "minFloor": 13
+    },
+    {
+      "id": "molten_hound",
+      "name": "熔火猎犬",
+      "hp": 76,
+      "attack": 26,
+      "defense": 8,
+      "gold": 60,
+      "xp": 58,
+      "skills": [
+        "inferno",
+        "empower"
+      ],
+      "desc": "脚掌过处岩石发烫。",
+      "minFloor": 15
+    },
+    {
+      "id": "warden_priest",
+      "name": "加护祭司",
+      "hp": 58,
+      "attack": 14,
+      "defense": 6,
+      "gold": 30,
+      "xp": 30,
+      "skills": [
+        "dark_mend"
+      ],
+      "desc": "每 3 回合为同房间的同伴祈祷，防御 +3。",
+      "minFloor": 6,
+      "guardAura": {
+        "every": 3,
+        "defense": 3
+      }
+    },
+    {
+      "id": "zealot",
+      "name": "狂信者",
+      "hp": 36,
+      "attack": 13,
+      "defense": 2,
+      "gold": 22,
+      "xp": 22,
+      "skills": [],
+      "desc": "倒下时带着狂热的怨恨自爆，伤害来自它自己的攻击力。",
+      "minFloor": 4,
+      "explodeOnDeath": 0.6
+    },
+    {
+      "id": "blood_bat",
+      "name": "汲血蝙蝠",
+      "hp": 34,
+      "attack": 15,
+      "defense": 2,
+      "gold": 26,
+      "xp": 26,
+      "skills": [
+        "soul_drain"
+      ],
+      "desc": "血量越低，汲取回来的生命越多。",
+      "minFloor": 5,
+      "lowHpDrain": {
+        "ratio": 0.4,
+        "multiplier": 2
+      }
+    },
+    {
+      "id": "cursed_statue",
+      "name": "诅咒雕像",
+      "hp": 52,
+      "attack": 10,
+      "defense": 8,
+      "gold": 28,
+      "xp": 28,
+      "skills": [],
+      "desc": "你每次施法，都会被它的诅咒反噬 2 点生命。",
+      "minFloor": 7,
+      "spellReflect": 2
+    },
+    {
+      "id": "frost_binder",
+      "name": "霜缚者",
+      "hp": 48,
+      "attack": 16,
+      "defense": 5,
+      "gold": 32,
+      "xp": 32,
+      "skills": [
+        "frost_nova"
+      ],
+      "desc": "它的每次攻击都附着一层冰封印记。",
+      "minFloor": 8,
+      "frostSealOnHit": true
+    }
+  ],
+  "bosses": [
+    {
+      "id": "boss_molten",
+      "name": "熔岩领主",
+      "hp": 110,
+      "attack": 15,
+      "defense": 6,
+      "gold": 150,
+      "xp": 120,
+      "skills": [
+        "inferno",
+        "empower"
+      ],
+      "desc": "深渊的守门人，浑身流淌着岩浆。",
+      "isBoss": true,
+      "minFloor": 5
+    },
+    {
+      "id": "boss_frost",
+      "name": "霜蚀女王",
+      "hp": 150,
+      "attack": 20,
+      "defense": 8,
+      "gold": 220,
+      "xp": 190,
+      "skills": [
+        "frost_nova",
+        "dark_mend",
+        "empower"
+      ],
+      "desc": "她的呼吸能让火焰结冰。",
+      "isBoss": true,
+      "minFloor": 10
+    },
+    {
+      "id": "boss_abyss",
+      "name": "深渊之主",
+      "hp": 210,
+      "attack": 26,
+      "defense": 11,
+      "gold": 320,
+      "xp": 280,
+      "skills": [
+        "inferno",
+        "thunderclap",
+        "soul_drain",
+        "corrupt"
+      ],
+      "desc": "一切的源头，回响的主人。",
+      "isBoss": true,
+      "minFloor": 15
+    },
+    {
+      "id": "boss_abyss_reversed",
+      "name": "深渊之主·逆位",
+      "hp": 420,
+      "attack": 52,
+      "defense": 22,
+      "gold": 640,
+      "xp": 560,
+      "skills": [
+        "inferno",
+        "thunderclap",
+        "soul_drain",
+        "corrupt"
+      ],
+      "desc": "回响的主人被倒置过来，力量翻倍，理智全无。",
+      "isBoss": true,
+      "minFloor": 20
+    }
+  ],
+  "events": [
+    {
+      "id": "wishing_well",
+      "name": "神秘的井",
+      "text": "一口古井泛着微光，似乎渴望着金币。",
+      "choices": [
+        {
+          "label": "投入 10 金币",
+          "cost": 10,
+          "outcomes": [
+            {
+              "weight": 6,
+              "text": "井水翻涌，吐出一件宝物！",
+              "effect": {
+                "type": "randomItem"
+              }
+            },
+            {
+              "weight": 4,
+              "text": "一股寒气扑面而来，你失去了 5 点生命。",
+              "effect": {
+                "type": "hp",
+                "value": -5
+              }
+            }
+          ]
+        },
+        {
+          "label": "离开",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "你转身离开，井水归于平静。",
+              "effect": {
+                "type": "none"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wandering_merchant",
+      "name": "流浪商人",
+      "text": "一个披着斗篷的商人低声说：『用一件东西，换一件未知的东西，如何？』",
+      "choices": [
+        {
+          "label": "交换一件道具",
+          "requiresItem": true,
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "商人笑着递给你一件新的道具。",
+              "effect": {
+                "type": "swapItem"
+              }
+            }
+          ]
+        },
+        {
+          "label": "婉拒",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "商人耸耸肩，消失在阴影里。",
+              "effect": {
+                "type": "none"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cursed_idol",
+      "name": "诅咒神像",
+      "text": "一尊黑曜石神像伸出手掌，要求以血肉换取力量。",
+      "choices": [
+        {
+          "label": "献上血祭",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "你感到生命力被抽走，但力量涌入四肢。",
+              "effect": {
+                "type": "curse",
+                "hpPct": -0.1,
+                "attack": 5
+              }
+            }
+          ]
+        },
+        {
+          "label": "无视它",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "神像的眼睛在你转身时幽幽亮起。",
+              "effect": {
+                "type": "none"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "healing_spring",
+      "name": "治愈之泉",
+      "text": "一汪清泉散着微光，掬一捧水就能感到舒缓。",
+      "choices": [
+        {
+          "label": "饮下泉水",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "伤口迅速愈合，你回复了 40% 生命。",
+              "effect": {
+                "type": "healPct",
+                "value": 0.4
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamblers_coin",
+      "name": "赌徒的钱袋",
+      "text": "地上有个鼓胀的钱袋，旁边刻着：『拿走的，要还回来。』",
+      "choices": [
+        {
+          "label": "拿走钱袋",
+          "outcomes": [
+            {
+              "weight": 5,
+              "text": "钱袋里装满了金币！",
+              "effect": {
+                "type": "gold",
+                "value": 35
+              }
+            },
+            {
+              "weight": 5,
+              "text": "钱袋炸开，原来是个陷阱！",
+              "effect": {
+                "type": "hp",
+                "value": -12
+              }
+            }
+          ]
+        },
+        {
+          "label": "不去碰它",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "你绕开了钱袋。",
+              "effect": {
+                "type": "none"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shrine_of_dawn",
+      "name": "黎明祭坛",
+      "text": "一座被藤蔓缠住的祭坛，坛上供着一株发光的草。空气里有毒尘的味道。",
+      "choices": [
+        {
+          "label": "摘下净化草",
+          "outcomes": [
+            {
+              "weight": 1,
+              "text": "你感到一阵清凉，体内的毒素被涤荡一空。",
+              "effect": {
+                "type": "cleanse"
+              }
+            }
+          ]
+        },
+        {
+          "label": "把血滴在坛上",
+          "outcomes": [
+            {
+              "weight": 6,
+              "text": "祭坛亮起，力量顺着伤口涌进四肢。",
+              "effect": {
+                "type": "curse",
+                "hpPct": -0.08,
+                "attack": 6
+              }
+            },
+            {
+              "weight": 4,
+              "text": "祭坛吞下了你的血，什么也没发生。",
+              "effect": {
+                "type": "hp",
+                "value": -8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "encounterSlots": {
+    "1": [
+      {
+        "id": "f1_a",
+        "monsters": [
+          "rat"
+        ]
+      },
+      {
+        "id": "f1_b",
+        "monsters": [
+          "rat",
+          "rat"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "id": "f2_a",
+        "monsters": [
+          "slime"
+        ]
+      },
+      {
+        "id": "f2_b",
+        "monsters": [
+          "rat",
+          "rat"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "id": "f3_a",
+        "monsters": [
+          "goblin"
+        ]
+      },
+      {
+        "id": "f3_b",
+        "monsters": [
+          "skeleton",
+          "rat"
+        ]
+      }
+    ],
+    "4": [
+      {
+        "id": "f4_a",
+        "monsters": [
+          "skeleton"
+        ]
+      },
+      {
+        "id": "f4_b",
+        "monsters": [
+          "goblin",
+          "rat"
+        ]
+      },
+      {
+        "id": "f4_c",
+        "monsters": [
+          "cave_bat",
+          "rat"
+        ]
+      }
+    ],
+    "5": [
+      {
+        "id": "f5_a",
+        "monsters": [
+          "orc"
+        ]
+      },
+      {
+        "id": "f5_b",
+        "monsters": [
+          "goblin",
+          "goblin"
+        ]
+      }
+    ],
+    "6": [
+      {
+        "id": "f6_a",
+        "monsters": [
+          "troll"
+        ]
+      },
+      {
+        "id": "f6_b",
+        "monsters": [
+          "warden_priest",
+          "goblin"
+        ]
+      },
+      {
+        "id": "f6_c",
+        "monsters": [
+          "zealot",
+          "goblin"
+        ]
+      }
+    ],
+    "7": [
+      {
+        "id": "f7_a",
+        "monsters": [
+          "cave_bat",
+          "goblin"
+        ]
+      },
+      {
+        "id": "f7_b",
+        "monsters": [
+          "golem",
+          "zealot"
+        ]
+      },
+      {
+        "id": "f7_c",
+        "monsters": [
+          "cursed_statue",
+          "rat"
+        ]
+      }
+    ],
+    "8": [
+      {
+        "id": "f8_a",
+        "monsters": [
+          "blood_serpent"
+        ]
+      },
+      {
+        "id": "f8_b",
+        "monsters": [
+          "blood_bat",
+          "goblin"
+        ]
+      },
+      {
+        "id": "f8_c",
+        "monsters": [
+          "lich",
+          "warden_priest"
+        ]
+      }
+    ],
+    "9": [
+      {
+        "id": "f9_a",
+        "monsters": [
+          "rust_golem"
+        ]
+      },
+      {
+        "id": "f9_b",
+        "monsters": [
+          "cursed_statue",
+          "blood_bat"
+        ]
+      },
+      {
+        "id": "f9_c",
+        "monsters": [
+          "thorn_hound",
+          "goblin"
+        ]
+      }
+    ],
+    "10": [
+      {
+        "id": "f10_a",
+        "monsters": [
+          "shadow_stalker",
+          "lich"
+        ]
+      },
+      {
+        "id": "f10_b",
+        "monsters": [
+          "frost_binder",
+          "warden_priest"
+        ]
+      },
+      {
+        "id": "f10_c",
+        "monsters": [
+          "troll",
+          "zealot"
+        ]
+      }
+    ],
+    "11": [
+      {
+        "id": "f11_a",
+        "monsters": [
+          "shadow_stalker"
+        ]
+      },
+      {
+        "id": "f11_b",
+        "monsters": [
+          "frost_binder",
+          "blood_bat"
+        ]
+      },
+      {
+        "id": "f11_c",
+        "monsters": [
+          "cursed_statue",
+          "cursed_statue"
+        ]
+      }
+    ],
+    "12": [
+      {
+        "id": "f12_a",
+        "monsters": [
+          "abyss_hound"
+        ]
+      },
+      {
+        "id": "f12_b",
+        "monsters": [
+          "shadow_stalker",
+          "blood_bat"
+        ]
+      },
+      {
+        "id": "f12_c",
+        "monsters": [
+          "warden_priest",
+          "rust_golem"
+        ]
+      }
+    ],
+    "13": [
+      {
+        "id": "f13_a",
+        "monsters": [
+          "crystal_priest",
+          "frost_binder"
+        ]
+      },
+      {
+        "id": "f13_b",
+        "monsters": [
+          "abyss_hound",
+          "zealot"
+        ]
+      },
+      {
+        "id": "f13_c",
+        "monsters": [
+          "cursed_statue",
+          "blood_bat"
+        ]
+      }
+    ],
+    "14": [
+      {
+        "id": "f14_a",
+        "monsters": [
+          "abyss_hound"
+        ]
+      },
+      {
+        "id": "f14_b",
+        "monsters": [
+          "abyss_hound",
+          "warden_priest"
+        ]
+      },
+      {
+        "id": "f14_c",
+        "monsters": [
+          "crystal_priest",
+          "shadow_stalker"
+        ]
+      }
+    ],
+    "15": [
+      {
+        "id": "f15_a",
+        "monsters": [
+          "molten_hound",
+          "frost_binder"
+        ]
+      },
+      {
+        "id": "f15_b",
+        "monsters": [
+          "crystal_priest",
+          "abyss_hound"
+        ]
+      }
+    ],
+    "16": [
+      {"id": "f16_a", "monsters": ["molten_hound", "frost_binder"]},
+      {"id": "f16_b", "monsters": ["crystal_priest", "abyss_hound"]},
+      {"id": "f16_c", "monsters": ["rust_golem", "zealot"]}
+    ],
+    "17": [
+      {"id": "f17_a", "monsters": ["molten_hound", "cursed_statue"]},
+      {"id": "f17_b", "monsters": ["abyss_hound", "blood_bat"]},
+      {"id": "f17_c", "monsters": ["crystal_priest", "warden_priest"]}
+    ],
+    "18": [
+      {"id": "f18_a", "monsters": ["molten_hound", "frost_binder", "rat"]},
+      {"id": "f18_b", "monsters": ["abyss_hound", "zealot"]},
+      {"id": "f18_c", "monsters": ["rust_golem", "crystal_priest"]}
+    ],
+    "19": [
+      {"id": "f19_a", "monsters": ["abyss_hound", "shadow_stalker"]},
+      {"id": "f19_b", "monsters": ["molten_hound", "crystal_priest"]},
+      {"id": "f19_c", "monsters": ["rust_golem", "warden_priest", "blood_bat"]}
+    ],
+    "21": [
+      {"id": "f21_a", "monsters": ["abyss_hound", "shadow_stalker", "blood_bat"]},
+      {"id": "f21_b", "monsters": ["molten_hound", "crystal_priest"]},
+      {"id": "f21_c", "monsters": ["rust_golem", "frost_binder", "zealot"]}
+    ],
+    "22": [
+      {"id": "f22_a", "monsters": ["molten_hound", "crystal_priest", "warden_priest"]},
+      {"id": "f22_b", "monsters": ["abyss_hound", "shadow_stalker", "cursed_statue"]},
+      {"id": "f22_c", "monsters": ["rust_golem", "frost_binder", "blood_bat"]}
+    ],
+    "23": [
+      {"id": "f23_a", "monsters": ["molten_hound", "abyss_hound", "zealot"]},
+      {"id": "f23_b", "monsters": ["crystal_priest", "shadow_stalker", "frost_binder"]},
+      {"id": "f23_c", "monsters": ["rust_golem", "crystal_priest", "warden_priest"]}
+    ],
+    "24": [
+      {"id": "f24_a", "monsters": ["molten_hound", "abyss_hound", "crystal_priest"]},
+      {"id": "f24_b", "monsters": ["rust_golem", "shadow_stalker", "frost_binder", "zealot"]},
+      {"id": "f24_c", "monsters": ["molten_hound", "crystal_priest", "warden_priest", "blood_bat"]}
+    ]
+  },
+  "roomTypes": {
+    "empty": {
+      "weight": 34,
+      "name": "空房间",
+      "symbol": "·"
+    },
+    "enemy": {
+      "weight": 36,
+      "name": "敌人房",
+      "symbol": "!"
+    },
+    "treasure": {
+      "weight": 12,
+      "name": "宝箱房",
+      "symbol": "$"
+    },
+    "shop": {
+      "weight": 10,
+      "name": "商店",
+      "symbol": "商"
+    },
+    "event": {
+      "weight": 8,
+      "name": "事件房",
+      "symbol": "?"
+    },
+    "altar": {
+      "weight": 10,
+      "name": "祭坛房",
+      "symbol": "†"
+    },
+    "training": {
+      "weight": 8,
+      "name": "训练房",
+      "symbol": "☥"
+    },
+    "curse": {
+      "weight": 6,
+      "name": "诅咒房",
+      "symbol": "♁"
+    },
+    "elite": {
+      "weight": 7,
+      "name": "精英房",
+      "symbol": "⚑"
+    }
+  },
+  "config": {
+    "mapWidth": 7,
+    "mapHeight": 5,
+    "minRooms": 9,
+    "inventorySize": 8,
+    "startingHp": 60,
+    "startingAttack": 8,
+    "startingDefense": 2,
+    "startingGold": 20,
+    "critChance": 0.1,
+    "critMultiplier": 1.5,
+    "defendReduction": 0.5,
+    "damageVariance": 0.2,
+    "enemyAi": {
+      "attack": 0.45,
+      "defend": 0.3,
+      "skill": 0.25
+    },
+    "enemyGrowth": 0.05,
+    "finalFloor": 15,
+    "altars": {
+      "cleanse": 6,
+      "curse": 4,
+      "sacrifice": {
+        "hpPct": 0.08,
+        "attack": 6,
+        "hpCostMin": 6,
+        "hpCostMaxPct": 0.04
+      },
+      "offering": {
+        "baseCost": 60,
+        "costPerFloor": 20,
+        "costPerStep": 45,
+        "hpPerStep": 6,
+        "attackPerStep": 1,
+        "maxSteps": 5,
+        "minFloor": 6
+      }
+    },
+    "meta": {
+      "bossShards": {
+        "5": 50,
+        "10": 100,
+        "15": 200
+      },
+      "clearShards": 50,
+      "deathShards": 5,
+      "loopEnemyScale": 0.15,
+      "loopShopScale": 0.1,
+      "loopCurses": [
+        {
+          "name": "暴戾",
+          "desc": "所有敌人暴击率 +10%"
+        },
+        {
+          "name": "坚韧",
+          "desc": "所有敌人防御 +15%"
+        },
+        {
+          "name": "嗜血",
+          "desc": "所有敌人攻击 +10%"
+        },
+        {
+          "name": "贪婪",
+          "desc": "商店价格额外 +10%"
+        }
+      ]
+    },
+    "rooms": {
+      "training": {
+        "healPct": 0.4,
+        "attackPct": 0.1,
+        "affixCount": 1
+      },
+      "curse": {
+        "affixIds": [
+          "bleeding_edge",
+          "greedy_blade",
+          "fragile_shell",
+          "chaotic_mind"
+        ]
+      },
+      "elite": {
+        "scaleBase": 1,
+        "scalePerFloor": 0.03,
+        "minQuality": "blue",
+        "affixChance": 0.5
+      }
+    }
+  },
+  "leveling": {
+    "baseXp": 30,
+    "growth": 1.5,
+    "hpPerLevel": 6,
+    "attackPerLevel": 1,
+    "defenseEveryLevels": 3,
+    "defensePerLevel": 1,
+    "pool": [
+      "bone_throw",
+      "rust_curse",
+      "venom_spit",
+      "frost_brand",
+      "dark_mend",
+      "phase_dash",
+      "soul_drain",
+      "venom_burst",
+      "thunderclap"
+    ],
+    "desc": "升级曲线：击败敌人累积经验，升级提升面板属性并按池解锁新技能（第 15 层为最终层）"
+  },
+  "bossStages": [
+    {
+      "floor": 5,
+      "id": "boss_molten",
+      "mechanic": "molten_burst",
+      "goldMultiplier": 1,
+      "xpMultiplier": 1
+    },
+    {
+      "floor": 10,
+      "id": "boss_frost",
+      "mechanic": "frost_mirror",
+      "goldMultiplier": 1,
+      "xpMultiplier": 1
+    },
+    {
+      "floor": 15,
+      "id": "boss_abyss",
+      "mechanic": "abyss_domain",
+      "goldMultiplier": 1,
+      "xpMultiplier": 1
+    },
+    {
+      "floor": 20,
+      "id": "boss_abyss_reversed",
+      "mechanic": "abyss_domain",
+      "goldMultiplier": 2,
+      "xpMultiplier": 2
+    },
+    {
+      "floor": 25,
+      "id": "boss_molten",
+      "mechanic": "boss_gauntlet",
+      "goldMultiplier": 2,
+      "xpMultiplier": 2
+    }
+  ],
+  "floorMechanics": {
+    "none": {
+      "name": "常规",
+      "desc": "这一层没有特殊规则。"
+    },
+    "haze": {
+      "name": "瘴气",
+      "desc": "毒雾贴着地面爬：本层敌人的攻击有 20% 概率使你中毒 2 回合。"
+    },
+    "cramped": {
+      "name": "狭窄",
+      "desc": "岩壁挤占了战场：本层敌人防御 +4，作为补偿你的暴击率 +15%。"
+    },
+    "thorny": {
+      "name": "尖刺",
+      "desc": "满地碎岩与倒刺：本层敌人攻击 +25%。"
+    },
+    "blighted": {
+      "name": "疫病",
+      "desc": "腐殖质糊住了敌人的甲胄：本层敌人免疫中毒，但你的攻击力 +4。"
+    },
+    "restless": {
+      "name": "躁动",
+      "desc": "这些敌人不肯正面挨打：本层敌人闪避率 20%。"
+    },
+    "echoing": {
+      "name": "回响",
+      "desc": "深处的低语在愈合它们的伤口：本层敌人每回合回复 8% 最大生命。"
+    },
+    "searing": {
+      "name": "灼烧",
+      "desc": "空气烫得刺喉：本层敌人攻击无视你 30% 的防御。"
+    },
+    "spiteful": {
+      "name": "怨恨",
+      "desc": "敌人带着怨恨而来：它们倒下时会自爆，对你造成其攻击力 60% 的伤害。"
+    },
+    "reflecting": {
+      "name": "反射",
+      "desc": "这里的骨头泛着金属光：你攻击时有 25% 概率被反震，损失 4 点生命。"
+    },
+    "gloom": {
+      "name": "幽暗",
+      "desc": "光源照不到这里：本层敌人闪避率 30%，你的治疗效果减半。"
+    },
+    "congealing": {
+      "name": "凝固",
+      "desc": "脚下的地面正在凝固：本层敌人防御 +2、攻击 +10%，且每回合回复 5% 最大生命。"
+    },
+    "abyss_pressure": {
+      "name": "渊压",
+      "desc": "深处的重量压在骨头上：本层敌人攻击 +15%、防御 +5。"
+    },
+    "soul_rot": {
+      "name": "魂腐",
+      "desc": "倒下的敌人仍在低语：本层敌人每回合回复 6% 最大生命，并免疫中毒。"
+    }
+  },
+  "floorMechanicMap": {
+    "1": "none",
+    "2": "haze",
+    "3": "cramped",
+    "4": "thorny",
+    "5": "molten_burst",
+    "6": "blighted",
+    "7": "restless",
+    "8": "echoing",
+    "9": "searing",
+    "10": "frost_mirror",
+    "11": "spiteful",
+    "12": "reflecting",
+    "13": "gloom",
+    "14": "congealing",
+    "15": "abyss_domain",
+    "16": "abyss_pressure",
+    "17": "gloom",
+    "18": "restless",
+    "19": "echoing",
+    "20": "abyss_domain",
+    "21": "reflecting",
+    "22": "spiteful",
+    "23": "blighted",
+    "24": "congealing",
+    "25": "soul_rot"
+  },
+  "bossMechanics": {
+    "molten_burst": {
+      "name": "熔岩爆裂",
+      "desc": "每 3 回合爆开一层岩浆壳：当回合攻击 +40%，并灼烧你 2 回合。",
+      "every": 3,
+      "multiplier": 1.4
+    },
+    "frost_mirror": {
+      "name": "霜之镜像",
+      "desc": "每 2 回合展开一面冰镜，把你下一次造成的伤害固定反弹 20 点。",
+      "every": 2,
+      "reflect": 20
+    },
+    "abyss_domain": {
+      "name": "深渊领域",
+      "desc": "每 2 回合张开领域：你的技能冷却 +1 回合，当回合攻击 +30%，并驱散你的强化。",
+      "every": 2,
+      "multiplier": 1.3,
+      "cooldown": 1
+    },
+    "boss_gauntlet": {
+      "name": "三 Boss 连战",
+      "desc": "依次对战熔岩领主、霜蚀女王、深渊之主，中途没有补给。",
+      "every": 3,
+      "multiplier": 1.2
+    }
+  },
+  "affixes": {
+    "crit_burn": {
+      "id": "crit_burn",
+      "name": "炽热暴击",
+      "desc": "暴击时附加灼烧 2 回合（每回合损失 4 点生命）",
+      "critBurn": {
+        "turns": 2,
+        "power": 4
+      }
+    },
+    "kill_heal": {
+      "id": "kill_heal",
+      "name": "噬魂",
+      "desc": "击杀敌人时回复 3% 最大生命",
+      "killHealPct": 0.03
+    },
+    "last_stand": {
+      "id": "last_stand",
+      "name": "不屈",
+      "desc": "受到致命伤时保留 1 点生命，每场战斗一次",
+      "surviveLethal": true
+    },
+    "sharpened": {
+      "id": "sharpened",
+      "name": "锋锐",
+      "desc": "攻击力 +15%",
+      "attackPct": 0.15
+    },
+    "keen_eye": {
+      "id": "keen_eye",
+      "name": "鹰眼",
+      "desc": "暴击率 +8%",
+      "critChance": 0.08
+    },
+    "venom_prolong": {
+      "id": "venom_prolong",
+      "name": "延毒",
+      "desc": "毒系技能持续时间 +1 回合",
+      "poisonTurns": 1
+    },
+    "deep_drain": {
+      "id": "deep_drain",
+      "name": "汲髓",
+      "desc": "灵魂汲取类技能的回血量 +50%",
+      "drainHealPct": 0.5
+    },
+    "frost_seal": {
+      "id": "frost_seal",
+      "name": "霜噬",
+      "desc": "冰封印记命中敌人时，自身回复 2 点生命",
+      "frostSealHeal": 2
+    },
+    "reckless": {
+      "id": "reckless",
+      "name": "狂意",
+      "desc": "攻击力 +30%，但每层首次受到的伤害 +20%",
+      "riskAttackPct": 0.3,
+      "riskIncomingPct": 0.2
+    },
+    "bleeding_edge": {
+      "id": "bleeding_edge",
+      "name": "血蚀锋刃",
+      "desc": "攻击力 +25%，每回合开始损失 2 点生命（负面）",
+      "attackPct": 0.25,
+      "turnStartHpLoss": 2,
+      "negative": true
+    },
+    "greedy_blade": {
+      "id": "greedy_blade",
+      "name": "贪婪之刃",
+      "desc": "攻击力 +30%，但受到的治疗效果 -50%",
+      "negative": true,
+      "attackPct": 0.3,
+      "healTakenPct": -0.5
+    },
+    "fragile_shell": {
+      "id": "fragile_shell",
+      "name": "脆弱躯壳",
+      "desc": "最大生命 +20%，但受到的伤害 +15%",
+      "negative": true,
+      "maxHpPct": 0.2,
+      "damageTakenPct": 0.15
+    },
+    "chaotic_mind": {
+      "id": "chaotic_mind",
+      "name": "混乱思绪",
+      "desc": "暴击率 +12%，但每次施法有 25% 概率失败",
+      "negative": true,
+      "critChance": 0.12,
+      "spellFailChance": 0.25
+    }
+  },
+  "qualities": {
+    "white": {
+      "name": "白",
+      "affixCount": 0,
+      "color": "#a9b6d0"
+    },
+    "blue": {
+      "name": "蓝",
+      "affixCount": 1,
+      "color": "#7cc0ff"
+    },
+    "purple": {
+      "name": "紫",
+      "affixCount": 2,
+      "color": "#c39bff"
+    },
+    "orange": {
+      "name": "橙",
+      "affixCount": 2,
+      "color": "#f2a44e"
+    }
+  }
+}

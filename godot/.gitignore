@@ -1,0 +1,8 @@
+# Godot 生成物：编辑器缓存、导出、.NET 编译产物
+.godot/
+build/
+bin/
+obj/
+# --shot 产出的界面截图（CI 里当 artifact，不入库）
+screenshots/
+*.user

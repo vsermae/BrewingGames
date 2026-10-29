@@ -1,0 +1,18 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <RootNamespace>AbyssEcho</RootNamespace>
+    <AssemblyName>AbyssEcho</AssemblyName>
+    <!-- 逻辑层是纯 C#，警告当错误能挡住「改了签名忘了改调用方」 -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <!-- Godot.NET.Sdk 默认 ImplicitUsings=disable；逻辑层到处用 List/Dictionary，开掉省 200 行 using -->
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- game_data.json 要跟着资源走：导出后 FileAccess 也能读到 -->
+    <None Include="Data/**/*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
