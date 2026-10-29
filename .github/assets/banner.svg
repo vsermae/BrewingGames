@@ -1,0 +1,80 @@
+<svg width="960" height="280" viewBox="0 0 960 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#070B12"/>
+      <stop offset="0.5" stop-color="#0D1320"/>
+      <stop offset="1" stop-color="#120914"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(205 115) rotate(90) scale(150 160)">
+      <stop offset="0" stop-color="#4DE3FF" stop-opacity="0.42"/>
+      <stop offset="0.35" stop-color="#5A7DFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#5A7DFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 84) rotate(90) scale(120 220)">
+      <stop offset="0" stop-color="#D07BFF" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#D07BFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="85" y1="50" x2="283" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8FF7FF"/>
+      <stop offset="0.26" stop-color="#70B8FF"/>
+      <stop offset="0.62" stop-color="#8A7BFF"/>
+      <stop offset="1" stop-color="#F18DFF"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="112" y1="50" x2="182" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D9E9FF"/>
+      <stop offset="0.24" stop-color="#7CC9FF"/>
+      <stop offset="0.7" stop-color="#4A6DEB"/>
+      <stop offset="1" stop-color="#261A4A"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="390" y1="50" x2="760" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAF8FF"/>
+      <stop offset="0.28" stop-color="#BCE8FF"/>
+      <stop offset="0.58" stop-color="#9AB5FF"/>
+      <stop offset="1" stop-color="#D4A5FF"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="280" fill="url(#bg)"/>
+  <circle cx="205" cy="118" r="150" fill="url(#glowA)"/>
+  <circle cx="520" cy="90" r="180" fill="url(#glowB)"/>
+
+  <g opacity="0.3">
+    <path d="M80 230L170 44L260 230H80Z" stroke="#7AD9FF" stroke-opacity="0.35" stroke-width="1.2"/>
+    <path d="M100 228L170 72L240 228H100Z" stroke="#B8C3FF" stroke-opacity="0.18" stroke-width="1"/>
+  </g>
+
+  <g>
+    <path d="M175 58L207 42L239 58V93L207 109L175 93V58Z" fill="#0D1A2F" stroke="url(#ring)" stroke-width="2.4"/>
+    <path d="M196 79L207 72L218 79V92L207 100L196 92V79Z" fill="#8EE7FF" fill-opacity="0.15" stroke="#9AE5FF" stroke-width="1.1"/>
+    <path d="M165 98L191 118L185 161L170 188L130 168L132 120L165 98Z" fill="#0A1320" stroke="#7AE6FF" stroke-width="2"/>
+    <path d="M249 98L223 118L229 161L244 188L284 168L282 120L249 98Z" fill="#0A1320" stroke="#7AE6FF" stroke-width="2"/>
+    <path d="M175 58L243 58" stroke="#90B7FF" stroke-width="2" opacity="0.9"/>
+    <path d="M190 50L207 26L224 50" stroke="#A6DAFF" stroke-width="2" opacity="0.8"/>
+
+    <g filter="url(#blur)">
+      <path d="M206 71L231 120L206 219L181 120L206 71Z" fill="#65E2FF" fill-opacity="0.15"/>
+    </g>
+    <path d="M206 71L231 120L206 216L181 120L206 71Z" fill="url(#steel)" stroke="#C9F5FF" stroke-opacity="0.7" stroke-width="2"/>
+    <path d="M206 91L217 121L206 176L195 121L206 91Z" fill="#BFF2FF" fill-opacity="0.36"/>
+    <path d="M176 120H236" stroke="#DFFFEE" stroke-opacity="0.45" stroke-width="2"/>
+    <path d="M206 71V216" stroke="#9DC0FF" stroke-width="1.8" opacity="0.8"/>
+
+    <path d="M151 192C178 168 194 154 206 138C218 154 234 168 261 192" stroke="#B4EFFF" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    <path d="M165 210H247" stroke="#7EE7FF" stroke-width="2.2" opacity="0.6"/>
+  </g>
+
+  <g opacity="0.8">
+    <path d="M315 158H860" stroke="#4F6F97" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <path d="M315 120H840" stroke="#3B4B6B" stroke-width="1"/>
+  </g>
+
+  <g>
+    <text x="318" y="128" fill="url(#titleGrad)" font-family="Segoe UI, Noto Sans CJK SC, sans-serif" font-weight="800" font-size="44" letter-spacing="3">深渊回响</text>
+    <text x="320" y="171" fill="#D4E9FF" font-family="Segoe UI, Noto Sans CJK SC, sans-serif" font-size="24" letter-spacing="7">ABYSSAL ECHO</text>
+    <rect x="320" y="187" width="210" height="2" fill="url(#ring)"/>
+    <text x="322" y="216" fill="#8EAFCF" font-family="Segoe UI, sans-serif" font-size="18" letter-spacing="3">ROOM-BASED ROGUELIKE RPG</text>
+  </g>
+</svg>
